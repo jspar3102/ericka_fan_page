@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ericka Lizbeth Angulo Duarte Fan Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientShift 30s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .trivia {
+      background: rgba(0,0,0,0.3);
+      padding: 30px 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: left;
+    }
+
+    .trivia h2 {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 20px;
+      color: #ffd700;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question p {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .options button {
+      display: block;
+      margin: 5px 0;
+      padding: 10px 15px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .options button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      font-size: 0.9em;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .correct {
+      background-color: #28a745 !important;
+      color: white;
+    }
+
+    .wrong {
+      background-color: #dc3545 !important;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💖 Ericka Lizbeth Angulo Duarte 💖</h1>
+    <p>Test your knowledge in a fun trivia!</p>
+  </header>
+
+  <section class="trivia">
+    <h2>Ericka Trivia Game</h2>
+
+    <div class="question" data-answer="pink">
+      <p>1. What is Ericka's favorite color?</p>
+      <div class="options">
+        <button>Blue</button>
+        <button>Green</button>
+        <button>Pink</button>
+        <button>Yellow</button>
+      </div>
+    </div>
+
+    <div class="question" data-answer="hot cheetos">
+      <p>2. What is Ericka's favorite snack?</p>
+      <div class="options">
+        <button>Chocolate</button>
+        <button>Hot Cheetos</button>
+        <button>Popcorn</button>
+        <button>Cookies</button>
+      </div>
+    </div>
+
+    <div class="question" data-answer="another13 by le labo">
+      <p>3. What perfume is Ericka wearing today?</p>
+      <div class="options">
+        <button>Chanel No.5</button>
+        <button>Another13 by Le Labo</button>
+        <button>Jo Malone Peony</button>
+        <button>Dior J'adore</button>
+      </div>
+    </div>
+
+    <div class="question" data-answer="trick">
+      <p>4. What is Ericka's favorite book?</p>
+      <div class="options">
+        <button>Harry Potter</button>
+        <button>The Great Gatsby</button>
+        <button>1984</button>
+        <button>None of the above (Trick question!)</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    Made with 💖 by fans of Ericka Lizbeth Angulo Duarte • © 2025
+  </footer>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+
+    questions.forEach(q => {
+      const buttons = q.querySelectorAll('button');
+      const correctAnswer = q.dataset.answer.toLowerCase();
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if(btn.textContent.toLowerCase() === correctAnswer) {
+            btn.classList.add('correct');
+            alert('Correct! 🎉');
+          } else {
+            btn.classList.add('wrong');
+            alert('Oops! Try again.');
+          }
+          // Disable all buttons for this question
+          buttons.forEach(b => b.disabled = true);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+
